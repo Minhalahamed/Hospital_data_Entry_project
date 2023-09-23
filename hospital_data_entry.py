@@ -1,6 +1,4 @@
 import sqlite3
-import os
-
 connection = sqlite3.connect("Patientdata.db")
 cursor = connection.cursor()
 # cursor.execute("CREATE TABLE Patientdata (name TEXT,age INTEGER,gender TEXT,condition TEXT,city TEXT,phone TEXT)")
@@ -22,7 +20,7 @@ while True:
        person_city =  input("Enter patient's city: ")
        person_phone =int( input("Enter patient's phone number: "))
        cursor.execute(f"Insert into Patientdata Values('{person_name}','{person_age}','{person_gender}','{person_condition}','{person_city}','{person_phone}')")
-       connecion.commit()
+       connection.commit()
     if chose == '2':
        rows = cursor.execute("select * from Patientdata").fetchall()
        for i in rows:
